@@ -1,4 +1,4 @@
-# Pine 64 - Temp / Humidity Reader
+# Pine 64 - Temperature / Humidity Reader
 
 This code reads the temperature and relative humidity from a Pine64 I2C PMSD001 sensor.
 
