@@ -34,7 +34,7 @@ func getTemp(d i2c.Device) (float64, float64) {
 	tempC := -46.85 + (175.72 * float64(temp) / 65536.0)
 	tempF := tempC*1.8 + 32
 
-	// fmt.Printf("%.2fºF\n", tempF)
+	// fmt.Printf("%.2f °F\n", tempF)
 	return tempF, tempC
 }
 
@@ -57,8 +57,8 @@ func main() {
 	d, err := i2c.Open(&i2c.Devfs{Dev: "/dev/i2c-1"}, 0x40)
 	check(err)
 
-	tempF, _ := getTemp(*d)
+	tempF, tempC := getTemp(*d)
 	humidity := getRelativeHumidity(*d)
 
-	fmt.Printf("temp=%.2f humidity=%d\n", tempF, humidity)
+	fmt.Printf("temperature: %.2f °C or %.2f °F relative humidity: %d%%\n", tempC, tempF, humidity)
 }
