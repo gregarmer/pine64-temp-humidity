@@ -24,7 +24,8 @@ Note that this I2C sensor can function also 3.3V, however, it is dangerous to us
 ## Usage
 
     sudo ./read-sensor
-    temp=32.32 humidity=73
+
+returns `temperature: 21.18 °C or 70.12 °F relative humidity: 48%`
 
 ![](images/PMSDO01_Dew_Point_Sensor_large.jpg)
 
