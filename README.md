@@ -19,13 +19,17 @@ Note that this I2C sensor can function also 3.3V, however, it is dangerous to us
     echo 'export GOPATH=$HOME/go' >> ~/.bashrc
     . ~/.bashrc
     go get golang.org/x/exp/io/i2c
-    go build -o read-sensor main.go
+    go build pmsd001.go
 
 ## Usage
 
-    sudo ./read-sensor
+    sudo ./pmsd001
 
-returns `temperature: 21.18 °C or 70.12 °F relative humidity: 48%`
+returns e.g. `1612530062      21.18   70.12   48` where the tab-separated values are:
+1. timestamp in UTC
+2. temperature in °C
+3. temperature in °F
+4. relative humidity in percentage
 
 ![](images/PMSDO01_Dew_Point_Sensor_large.jpg)
 
