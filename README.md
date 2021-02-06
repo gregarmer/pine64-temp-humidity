@@ -33,6 +33,12 @@ returns e.g. `1612530062      21.2    70.1    48.1` where the tab-separated valu
 
 ![](images/PMSDO01_Dew_Point_Sensor_large.jpg)
 
+## Plotting
+
+When concatenating measurements to `/var/log/pmsd001.log`, a PNG graph can be plotted with
+
+    gnuplot pmsd001.plt
+
 ## Useful Resources
 
 - https://www.pine64.org/devices/single-board-computers/pine-a64/
