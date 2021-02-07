@@ -20,7 +20,7 @@ set ytics nomirror 0,5
 set mytics 5
 
 set y2label 'relative humidity [%]' rotate by -90
-set y2range [35:65]
+set y2range [30:60]
 set y2tics nomirror 0,5
 set my2tics 5
 
