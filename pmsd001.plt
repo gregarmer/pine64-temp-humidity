@@ -15,12 +15,12 @@ set x2label 'date [yyyy-mm-dd]'
 set x2tics nomirror 1609459200,86400 format '%Y-%m-%d' time
 
 set ylabel 'temperature [°C]'
-set yrange [10:40]
+set yrange [-10:40]
 set ytics nomirror 0,5
 set mytics 5
 
 set y2label 'relative humidity [%]' rotate by -90
-set y2range [30:60]
+set y2range [20:70]
 set y2tics nomirror 0,5
 set my2tics 5
 
