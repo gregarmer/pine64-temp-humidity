@@ -16,7 +16,7 @@ set x2tics nomirror 1609459200,86400 format '%Y-%m-%d' time
 
 set ylabel 'temperature [°C]'
 set yrange [-10:40]
-set ytics nomirror 0,5
+set ytics nomirror -20,5
 set mytics 5
 
 set y2label 'relative humidity [%]' rotate by -90
@@ -25,5 +25,6 @@ set y2tics nomirror 0,5
 set my2tics 5
 
 plot \
-'/var/log/pmsd001.log' u 1:2 w l lw 2 t 'temperature', \
-'' u 1:4 w l lw 2 axes x1y2 t 'relative humidity'
+0 w l lc rgb 'black' t 'freezing point', \
+'/var/log/pmsd001.log' u 1:2 w l lw 2 lc rgb '#d50000' t 'temperature', \
+'' u 1:4 w l lw 2 lc rgb '#0091ea' axes x1y2 t 'relative humidity'
