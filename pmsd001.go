@@ -30,7 +30,7 @@ func getTemp(d i2c.Device) (float64, float64) {
 	response := make([]byte, 2)
 	check(d.Read(response))
 
-	temp := (int64(response[0])*256 + int64(response[1])) & 0xFFFC
+	temp := (int64(response[0]) * 256 + int64(response[1])) & 0xFFFC
 	tempC := -46.85 + (175.72 * float64(temp) / 65536.0)
 	tempF := tempC * 1.8 + 32
 
@@ -47,7 +47,7 @@ func getRelativeHumidity(d i2c.Device) float64 {
 	check(d.Read(response))
 
 	data := (int64(response[0]) * 256 + int64(response[1])) & 0xFFFC
-	humidity := (125 * float64(data) / 65536) - 6
+	humidity := (125.0 * float64(data) / 65536.0) - 6.0
 
 	return humidity
 }
