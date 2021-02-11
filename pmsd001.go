@@ -59,5 +59,5 @@ func main() {
 	tempF, tempC := getTemp(*d)
 	humidity := getRelativeHumidity(*d)
 
-	fmt.Printf("%d\t%.1f\t%.1f\t%.1f\n", time.Now().Unix(), tempC, tempF, humidity)
+	fmt.Printf("%d\t%.2f\t%.2f\t%.2f\n", time.Now().Unix(), tempC, tempF, humidity)
 }
