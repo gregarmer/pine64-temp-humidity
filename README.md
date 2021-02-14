@@ -37,9 +37,11 @@ Note that one decimal is significant for applications, however, using two decima
 
 ## Plotting
 
-When concatenating measurements to `/var/log/pmsd001.log`, a PNG graph can be plotted with
+When concatenating measurements to `pmsd001.log`, a PNG graph can be plotted with
 
     gnuplot pmsd001.plt
+
+![](images/pmsd001.png)
 
 ## Useful Resources
 

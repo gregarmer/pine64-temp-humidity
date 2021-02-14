@@ -26,5 +26,5 @@ set my2tics 5
 
 plot \
 0 w l lc rgb 'black' t 'freezing point', \
-'/var/log/pmsd001.log' u 1:2 w l lw 2 lc rgb '#d50000' t 'temperature', \
+'pmsd001.log' u 1:2 w l lw 2 lc rgb '#d50000' t 'temperature', \
 '' u 1:4 w l lw 2 lc rgb '#0091ea' axes x1y2 t 'relative humidity'
