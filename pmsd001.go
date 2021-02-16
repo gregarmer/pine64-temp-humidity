@@ -30,15 +30,14 @@ func getTemp(d i2c.Device) (float64, float64) {
 	response := make([]byte, 2)
 	check(d.Read(response))
 
-	temp := (int64(response[0])*256 + int64(response[1])) & 0xFFFC
+	temp := (int64(response[0]) * 256 + int64(response[1])) & 0xFFFC
 	tempC := -46.85 + (175.72 * float64(temp) / 65536.0)
-	tempF := tempC*1.8 + 32
+	tempF := tempC * 1.8 + 32
 
-	// fmt.Printf("%.2fºF\n", tempF)
 	return tempF, tempC
 }
 
-func getRelativeHumidity(d i2c.Device) int64 {
+func getRelativeHumidity(d i2c.Device) float64 {
 	err := d.Write([]byte{HUMIDITY})
 	check(err)
 
@@ -47,8 +46,8 @@ func getRelativeHumidity(d i2c.Device) int64 {
 	response := make([]byte, 2)
 	check(d.Read(response))
 
-	data := (int64(response[0])*256 + int64(response[1])) & 0xFFFC
-	humidity := ((125 * data) / 65536) - 6
+	data := (int64(response[0]) * 256 + int64(response[1])) & 0xFFFC
+	humidity := (125.0 * float64(data) / 65536.0) - 6.0
 
 	return humidity
 }
@@ -57,8 +56,8 @@ func main() {
 	d, err := i2c.Open(&i2c.Devfs{Dev: "/dev/i2c-1"}, 0x40)
 	check(err)
 
-	tempF, _ := getTemp(*d)
+	tempF, tempC := getTemp(*d)
 	humidity := getRelativeHumidity(*d)
 
-	fmt.Printf("temp=%.2f humidity=%d\n", tempF, humidity)
+	fmt.Printf("%d\t%.2f\t%.2f\t%.2f\n", time.Now().Unix(), tempC, tempF, humidity)
 }
